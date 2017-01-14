@@ -1,0 +1,31 @@
+.actionable-container {
+    border: 1px solid #e2e2e2;
+    box-shadow: 0 2px 6px 0 rgba(200,200,200,0.2);
+    border-radius: 4px;
+}
+
+body {
+  background-image: url('../img/night-tree.jpg');
+  background-position: center top;
+  background-size: initial;
+  background-repeat: no-repeat;
+  word-wrap: break-word;
+  font-size: 13px;
+}
+
+.content-wrapper {
+  width: 650px;
+  position: absolute;
+  bottom: initial;
+  left: 0;
+  right: 0;
+  margin: auto;
+  overflow-y: hidden;
+  top: 10%;
+}
+
+.footer-nav {
+    padding: 16px;
+    border-top: 1px solid #e2e2e2;
+    background: #f7f7f7;
+}
