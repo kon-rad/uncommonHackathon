@@ -2,6 +2,7 @@
     border: 1px solid #e2e2e2;
     box-shadow: 0 2px 6px 0 rgba(200,200,200,0.2);
     border-radius: 4px;
+    margin-bottom: 180px;
 }
 
 body {
@@ -15,7 +16,7 @@ body {
   background-repeat: no-repeat;*/
   word-wrap: break-word;
   font-size: 13px;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 .generate-playlist {
   margin-top: 20px;
@@ -29,7 +30,8 @@ body {
   background-color: white;
 }
 .content-wrapper {
-  width: 650px;
+  min-width: 650px;
+  width: 33%;
   position: absolute;
   bottom: initial;
   left: 0;
@@ -61,16 +63,38 @@ body {
   text-decoration: underline;
   outline: 0;
 }
+.life-soundtrack {
+  /*width: 240px;*/
+
+}
 
 h1 {
   /*font-family: 'Lora', serif;*/
   color: white;
   font-size: 68px;
   /*font-family: 'Cabin', sans-serif;*/
-  font-family: 'Francois One', sans-serif;
+  font-family: 'Playfair Display', sans-serif;
 }
 h3 {
   color: white;
+}
+
+
+
+#search-form, .form-control {
+    margin-bottom: 20px;
+}
+.cover {
+    width: 300px;
+    height: 300px;
+    display: inline-block;
+    background-size: cover;
+}
+.cover:hover {
+    cursor: pointer;
+}
+.cover.playing {
+    border: 5px solid #e45343;
 }
 
 @media (max-width: 768px) {

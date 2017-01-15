@@ -10,34 +10,97 @@
 //     });
 //     });
 
+//
+// $(document).ready(function(){
+//
+//   $("#playlist-button").on("click", function() {
+//     $("#output").empty();
+//     searchTerm = $("#searchTerm").val();
+//     var url = "https://en.wikipedia.org/w/api.php?action=opensearch&search="
+//     + searchTerm + "&format=json&callback=?"
+//     wikiSearch(url);
+//   });
+//
+//
+//    function searchAlbums(url) {
+//     $.ajax({
+//       url: url,
+//       type: "GET",
+//       async: false,
+//       dataType: 'json',
+//       success: function(data, status, jqXHR) {
+//         for(var i = 0; i < data[1].length; i++) {
+//           $("#output").append("<div><div class='well'><a href=" + data[3][i] +
+//           "><h2>" + data[1][i] + "</h2>" + "<p>" + data[2][i] +
+//           "</p></a></div></div>");
+//         }
+//     }
+//   });
+//   };
+//
+//
+// var searchAlbums = function (query) {
+//     $.ajax({
+//         url: 'https://api.spotify.com/v1/search',
+//         data: {
+//             q: query,
+//             type: 'album'
+//         },
+//         success: function (response) {
+//             console.log(response);
+//             resultsPlaceholder.innerHTML = template(response);
+//         }
+//     });
+// };
 
-$(document).ready(function(){
 
-  $("#playlist-button").on("click", function() {
-    $("#output").empty();
-    searchTerm = $("#searchTerm").val();
-    var url = "https://en.wikipedia.org/w/api.php?action=opensearch&search="
-    + searchTerm + "&format=json&callback=?"
-    wikiSearch(url);
-  });
+//Uses AJAX to read Spotify JSON files recieved from Spotify Track API
+// function loadTracks(trackName){
+//
+// $.ajax({
+//
+//   url:'https://api.spotify.com/v1/tracks/'+trackName,
+//
+//   success: function(json){
+//
+//   // alert(JSON.stringify(json));
+//     }
+//     });
+//
+// }
+//
+// //On Document Ready it reads information from a file which holds all the static song
+// $(document).ready(function(){
+//
+// var tracks = ["3n3Ppam7vgaVa1iaRUc9Lp", "7pPFNwM1ALSVU4nZfvHfn7", "3n3Ppam7vgaVa1iaRUc9Lp"];
+//
+// for(var i=0;i<3;i++)
+// {
+//     loadTracks(tracks[i]);
+// }
+// // randomTracks();
+//
+// });
 
+$(document).ready(function() {
+    // your code here
 
-   function searchAlbums(url) {
+// find template and compile it
+var templateSource = document.getElementById('results-template').innerHTML,
+    template = Handlebars.compile(templateSource),
+    resultsPlaceholder = document.getElementById('results'),
+    soundtrackList = document.getElementById('life-soundtrack-list'),
+    playingCssClass = 'playing',
+    audioObject = null;
+
+var fetchTracks = function (albumId, callback) {
     $.ajax({
-      url: url,
-      type: "GET",
-      async: false,
-      dataType: 'json',
-      success: function(data, status, jqXHR) {
-        for(var i = 0; i < data[1].length; i++) {
-          $("#output").append("<div><div class='well'><a href=" + data[3][i] +
-          "><h2>" + data[1][i] + "</h2>" + "<p>" + data[2][i] +
-          "</p></a></div></div>");
+        url: 'https://api.spotify.com/v1/albums/' + albumId,
+        success: function (response) {
+            callback(response);
         }
-    }
-  });
-  };
-
+    });
+};
 
 var searchAlbums = function (query) {
     $.ajax({
@@ -47,37 +110,68 @@ var searchAlbums = function (query) {
             type: 'album'
         },
         success: function (response) {
-            console.log(response);
             resultsPlaceholder.innerHTML = template(response);
         }
     });
 };
 
+results.addEventListener('click', function (e) {
 
-//Uses AJAX to read Spotify JSON files recieved from Spotify Track API
-function loadTracks(trackName){
+    var target = e.target;
+    //console.log("hi");
+  //  alert("hi");
+      //grabbing new album results
+      // var idOfAlbum = target.getAttribute('data-album-id')
+      // console.log(idOfAlbum);
+      // var idString = "div#" + idOfAlbum + "";
+      // console.log(idString);
+      // var albumResults = $("#results-template");
+      // var test = $(idString).html();
+      // var newAlbum = $(idString).html();
+      // console.log(test);
+      // console.log(newAblum);
+      var newAlbum = $(this).html();
+      //$(this).html();
+      //create a new li and add to ul
+      $("#life-soundtrack-list").append("<li> " + newAlbum + "</li>")
+      //resultsPlaceholder.innerHTML = template(target);
 
-$.ajax({
 
-  url:'https://api.spotify.com/v1/tracks/'+trackName,
-
-  success: function(json){
-
-  alert(json.name);
+    if (target !== null && target.classList.contains('cover')) {
+        if (target.classList.contains(playingCssClass)) {
+            audioObject.pause();
+        } else {
+            if (audioObject) {
+                audioObject.pause();
+            }
+            fetchTracks(target.getAttribute('data-album-id'), function (data) {
+                audioObject = new Audio(data.tracks.items[0].preview_url);
+                audioObject.play();
+                target.classList.add(playingCssClass);
+                audioObject.addEventListener('ended', function () {
+                    target.classList.remove(playingCssClass);
+                });
+                audioObject.addEventListener('pause', function () {
+                    target.classList.remove(playingCssClass);
+                });
+            });
+        }
     }
-    });
+});
 
-}
+document.getElementById('search-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    searchAlbums(document.getElementById('query').value);
+}, false);
 
-//On Document Ready it reads information from a file which holds all the static song
-$(document).ready(function(){
-
-var tracks = ["3n3Ppam7vgaVa1iaRUc9Lp", "7pPFNwM1ALSVU4nZfvHfn7", "3n3Ppam7vgaVa1iaRUc9Lp"];
-
-for(var i=0;i<3;i++)
-{
-    loadTracks(tracks[i]);
-}
-randomTracks();
-
+// This is for adding albums to life-soundtrack list
+// $(".cover").click(function(){
+//   console.log("hi");
+//   alert("hi");
+// 		//grabbing new album results
+// 		var newAlbum = $(this).val();
+// 		$(this).val("");
+// 		//create a new li and add to ul
+// 		$("#life-soundtrack-list").append("<li> " + newAlbum + "</li>")
+// 	});
 });

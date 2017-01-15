@@ -24,6 +24,9 @@
   crossorigin="anonymous"></script>
   <script src="js/script.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- Handlebars CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script> -->
 
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
@@ -35,12 +38,14 @@
   <!-- google fonts -->
   <link href="https://fonts.googleapis.com/css?family=Cabin|Lora|Francois+One|Ubuntu"
   rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato|Playfair+Display" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
   <div class="content-wrapper">
+
     <div class="title">
       <h1>Fire Mixtape MD</h1>
       <h3 class="tagline">Helping you be in the "here and now"</h3>
@@ -48,10 +53,27 @@
 
     <div class="actionable-container">
 
+
       <div class="content-inner">
+        <div class="life-soundtrack">
+          <h5>A Life in Ten Albums</h5>
+          <p>What albums made you who you are? </br>
+            Take some time to reflect on this and find some peace in knowing that you have lifed a full and beautiful life</p>
+
+          <ul id="life-soundtrack-list" >
+            <!-- <script type="text/x-handlebars-template">
+               {{#each albums.items}}
+            <li style="background-image:url({{images.0.url}})" data-album-id="{{id}}" class="cover"></li>
+               {{/each}}
+             </script> -->
+          </ul>
+
+        </div>
         <div class="call-to-action">
 
           <div class="summary">
+          </br>
+            <h5>Palliative Care Music Therapy</h5>
             <p>
               Music therapy is the practice of using music to address your
               physical and emotional needs in a therapeutic environment. It can
@@ -63,6 +85,17 @@
             <button id="playlist-button" class="generate-playlist">
               Generate Playlist
             </button>
+            <form id="search-form">
+                <input type="text" id="query" value="" class="form-control" placeholder="Type an Artist Name"/>
+                <input type="submit" id="search" class="btn btn-primary" value="Search" />
+            </form>
+            <div id="results"></div>
+
+<script id="results-template" type="text/x-handlebars-template">
+   {{#each albums.items}}
+   <div style="background-image:url({{images.0.url}})" data-album-id="{{id}}" class="cover"></div>
+   {{/each}}
+</script>
           </div> <!-- end summary -->
 
   <!-- Add buttons to future functionalities -->
