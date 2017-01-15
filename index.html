@@ -58,7 +58,7 @@
         <div class="life-soundtrack">
           <h5>A Life in Ten Albums</h5>
           <p>What albums made you who you are? </br>
-            Take some time to reflect on this and find some peace in knowing that you have lifed a full and beautiful life</p>
+            Take some time to reflect on this and find some peace in knowing that you have lived a full and beautiful life</p>
 
           <ul id="life-soundtrack-list" >
             <!-- <script type="text/x-handlebars-template">
@@ -66,6 +66,10 @@
             <li style="background-image:url({{images.0.url}})" data-album-id="{{id}}" class="cover"></li>
                {{/each}}
              </script> -->
+
+             <!-- This is what I need to show up by user click, jquery copies it from the resutls list below
+             <div style="background-image:url(https://i.scdn.co/image/a7b383d1e68548420d50c94ec5ef69d3d34127f5)" data-album-id="3VJ4zGRzrWtksgsJ5NDVyo" class="cover"></div> -->
+
           </ul>
 
         </div>
@@ -93,7 +97,8 @@
 
 <script id="results-template" type="text/x-handlebars-template">
    {{#each albums.items}}
-   <div style="background-image:url({{images.0.url}})" data-album-id="{{id}}" class="cover"></div>
+   <div style="background-image:url({{images.0.url}})" data-album-id="{{id}}"
+   id="{{id}}" class="cover"></div>
    {{/each}}
 </script>
           </div> <!-- end summary -->

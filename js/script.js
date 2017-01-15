@@ -85,6 +85,7 @@
 $(document).ready(function() {
     // your code here
 
+    var count= 001;
 // find template and compile it
 var templateSource = document.getElementById('results-template').innerHTML,
     template = Handlebars.compile(templateSource),
@@ -102,6 +103,8 @@ var fetchTracks = function (albumId, callback) {
     });
 };
 
+
+
 var searchAlbums = function (query) {
     $.ajax({
         url: 'https://api.spotify.com/v1/search',
@@ -110,7 +113,8 @@ var searchAlbums = function (query) {
             type: 'album'
         },
         success: function (response) {
-            resultsPlaceholder.innerHTML = template(response);
+          resultsPlaceholder.innerHTML = template(response);
+            //divToReplace.innerHTML = template(response);
         }
     });
 };
@@ -118,23 +122,11 @@ var searchAlbums = function (query) {
 results.addEventListener('click', function (e) {
 
     var target = e.target;
-    //console.log("hi");
-  //  alert("hi");
-      //grabbing new album results
-      // var idOfAlbum = target.getAttribute('data-album-id')
-      // console.log(idOfAlbum);
-      // var idString = "div#" + idOfAlbum + "";
-      // console.log(idString);
-      // var albumResults = $("#results-template");
-      // var test = $(idString).html();
-      // var newAlbum = $(idString).html();
-      // console.log(test);
-      // console.log(newAblum);
-      var newAlbum = $(this).html();
-      //$(this).html();
-      //create a new li and add to ul
-      $("#life-soundtrack-list").append("<li> " + newAlbum + "</li>")
-      //resultsPlaceholder.innerHTML = template(target);
+    var id = e.target.id;
+console.log(id);
+      var divIWant = document.getElementById(id);
+
+      $("#life-soundtrack-list").append(divIWant)
 
 
     if (target !== null && target.classList.contains('cover')) {
