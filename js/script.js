@@ -82,7 +82,49 @@
 //
 // });
 
+
+function openNav() {
+    document.getElementById("sideNav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("sideNav").style.width = "0";
+}
+
+function loadTracks(trackName){
+
+$.ajax({
+
+ url:'https://api.spotify.com/v1/tracks/'+trackName,
+
+success: function(json){
+
+console.log(json.name);
+ var s= JSON.stringify(json);
+ var arr = s.split("name");
+ var arr1 = arr[1].split("type");
+ console.log(arr1[0].replace(":","").replace(/"/g,"").replace(",",""));
+
+  }
+    });
+
+}
+
 $(document).ready(function() {
+
+  //Uses AJAX to read Spotify JSON files recieved from Spotify Track API
+  var tracks = ["3n3Ppam7vgaVa1iaRUc9Lp", "7pPFNwM1ALSVU4nZfvHfn7", "3n3Ppam7vgaVa1iaRUc9Lp"];
+
+  for(var i=0;i<3;i++)
+  {
+      loadTracks(tracks[i]);
+  }
+
+
+
+
+
+
     // your code here
 
     var count= 001;

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Music Therapy</title>
+
+  <link rel="shortcut icon" href="img/favicon.png" type="image/png">
+
+  <meta name="description" content="Hackathon music therapy">
+  <meta name="keywords" content="hackathon music therapy">
+  <meta name="author" content="">
+
+  <meta name="robots" content="index, follow">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- Handlebars CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+  <link rel="stylesheet" href
+  ="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href
+  ="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Cabin|Lora|Francois+One|Ubuntu"
+  rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato|Playfair+Display" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+
+
+  <div class="left-nav" id="sideNav">
+    <div class="logo-wrap">
+      <a href="index.html">
+      <img src="img/logo.png">
+    </a>
+    </div>
+    <div class="navigation-list">
+        <a href="musicTherapy.html">Music Therapy</a>
+        <a href="lifeSoundtrack.html">Life Soundtrack</a>
+        <a href="community.html">Community</a>
+        <a href="research.html">Research</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+    </div>
+  </div>
+
+
+
+      <div class="content-wrapper" >
+
+    <span id="open-span" style="font-size:30px;cursor:pointer; float:left;" onclick="openNav()">&#9776; open</span>
+
+    <div class="title">
+      <h1>Fire Mixtape MD</h1>
+
+      <h2 class="tagline">Helping you be in the "here and now"</h2>
+    </div>
+
+    <div class="actionable-container">
+
+
+      <div class="content-inner">
+
+          <div class="life-soundtrack">
+            <h3>A Life in Ten Albums</h3>
+            <p>What albums made you who you are? </br></br>
+              A life is whole and complete with the help of art, poetry and music.
+            </br>
+            It is the art that gives our lives meaning. Find solance in the feeling
+            that your life is wholesome.
+            </p>
+
+                      <ul id="life-soundtrack-list" >
+
+
+                      </ul>
+
+                      <h3>Enter artist name to search for albums that define you</h3>
+                      <p>Select ten to make a theraputic list!</p>
+
+
+            <form id="search-form">
+                <input type="text" id="query" value="" class="form-control" placeholder="Type an Artist Name"/>
+                <input type="submit" id="search" class="btn btn-primary" value="Search" />
+            </form>
+            <div id="results"></div>
+
+<script id="results-template" type="text/x-handlebars-template">
+   {{#each albums.items}}
+   <div style="background-image:url({{images.0.url}})" data-album-id="{{id}}"
+   id="{{id}}" class="cover"></div>
+   {{/each}}
+</script>
+
+          </div>
+
+      </div>
+
+
+
+      <div class="footer-nav">
+        <ul class="nav-list">
+          <li>About</li>
+          <li>Research</li>
+          <li>Contact</li>
+        </ul>
+     </div> <!-- footer-nav ends -->
+     </div> <!-- content-inner  ends -->
+
+   </div> <!-- content-wrap  ends -->
+
+
+
+</body>
+</html>

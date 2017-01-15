@@ -1,12 +1,11 @@
 .actionable-container {
-    border: 1px solid #e2e2e2;
-    box-shadow: 0 2px 6px 0 rgba(200,200,200,0.2);
-    border-radius: 4px;
-    margin-bottom: 180px;
+    margin: 120px auto 180px auto;
+    max-width: 600px;
+    background-color:white;
 }
 
 body {
-  background: url('../img/night-tree.png') no-repeat center center fixed;
+  background: url('../img/water.jpeg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -17,6 +16,7 @@ body {
   word-wrap: break-word;
   font-size: 13px;
   font-family: 'Lato', sans-serif;
+  text-align: center;
 }
 .generate-playlist {
   margin-top: 20px;
@@ -30,16 +30,8 @@ body {
   background-color: white;
 }
 .content-wrapper {
-  min-width: 650px;
-  width: 33%;
-  position: absolute;
-  bottom: initial;
-  left: 0;
-  right: 0;
-  margin: auto;
-  overflow-y: hidden;
-  top: 10%;
-  text-align: center;
+  float:right;
+ margin-right:22%;
 }
 
 .footer-nav {
@@ -68,6 +60,38 @@ body {
 
 }
 
+
+  /*NEW CODE */
+
+.anc-button {
+  margin-top: 40px;
+  text-decoration:none;
+  border: solid 1px black;
+  padding: 8px 8px;
+  color: black;
+}
+a.anc-button:hover {
+  text-decoration:none;
+  color: white;
+  background-color: black;
+}
+
+
+.left-nav {
+  float:left;
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  border-right: 10px solid #FFCB05;
+}
+
 h1 {
   /*font-family: 'Lora', serif;*/
   color: white;
@@ -75,8 +99,11 @@ h1 {
   /*font-family: 'Cabin', sans-serif;*/
   font-family: 'Playfair Display', sans-serif;
 }
-h3 {
+h2 {
   color: white;
+}
+h3 {
+  color: black;
 }
 
 
@@ -97,10 +124,48 @@ h3 {
     border: 5px solid #e45343;
 }
 
+.left-nav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+.left-nav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.left-nav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+.flow-chart-image {
+  width: 466px;
+  height: auto;
+  margin: 0 auto;
+}
+
+
+@media screen and (max-height: 450px) {
+  .left-nav {padding-top: 15px;}
+  .left-nav a {font-size: 18px;}
+}
+
+
 @media (max-width: 768px) {
   .content-wrapper {
     width: 80%
   }
+}
+@media (min-width: 769px) {
+    #open-span {
+      display:none;
+    }
 }
 
 
