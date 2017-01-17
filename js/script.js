@@ -165,10 +165,9 @@ results.addEventListener('click', function (e) {
 
     var target = e.target;
     var id = e.target.id;
-console.log(id);
+     console.log(id);
       var divIWant = document.getElementById(id);
-
-      $("#life-soundtrack-list").append(divIWant)
+      $("#life-soundtrack-list").append(divIWant);
 
 
     if (target !== null && target.classList.contains('cover')) {

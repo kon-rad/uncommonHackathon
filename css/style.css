@@ -1,3 +1,15 @@
+.anc-button {
+  margin-top: 40px;
+  text-decoration:none;
+  border: solid 1px black;
+  padding: 8px 8px;
+  color: black;
+}
+a.anc-button:hover {
+  text-decoration:none;
+  color: white;
+  background-color: black;
+}
 .actionable-container {
     margin: 120px auto 180px auto;
     max-width: 600px;
@@ -10,19 +22,22 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  /*background-position: center;
-  background-size: 100%;
-  background-repeat: no-repeat;*/
   word-wrap: break-word;
   font-size: 13px;
   font-family: 'Lato', sans-serif;
   text-align: center;
 }
-.generate-playlist {
-  margin-top: 20px;
-  border: 1px solid black;
-  background-color:white;
-  margin-bottom: 60px;
+.cover {
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+    background-size: cover;
+}
+.cover:hover {
+    cursor: pointer;
+}
+.cover.playing {
+    border: 5px solid #e45343;
 }
 .content-inner {
   min-height: 122px;
@@ -33,7 +48,6 @@ body {
   float:right;
  margin-right:22%;
 }
-
 .footer-nav {
     padding: 16px;
     border-top: 1px solid #e2e2e2;
@@ -55,28 +69,28 @@ body {
   text-decoration: underline;
   outline: 0;
 }
-.life-soundtrack {
-  /*width: 240px;*/
-
+.flow-chart-image {
+  width: 466px;
+  height: auto;
+  margin: 0 auto;
 }
-
-
-  /*NEW CODE */
-
-.anc-button {
-  margin-top: 40px;
-  text-decoration:none;
-  border: solid 1px black;
-  padding: 8px 8px;
+.generate-playlist {
+  margin-top: 20px;
+  border: 1px solid black;
+  background-color:white;
+  margin-bottom: 60px;
+}
+h1 {
+  color: white;
+  font-size: 68px;
+  font-family: 'Playfair Display', sans-serif;
+}
+h2 {
+  color: white;
+}
+h3 {
   color: black;
 }
-a.anc-button:hover {
-  text-decoration:none;
-  color: white;
-  background-color: black;
-}
-
-
 .left-nav {
   float:left;
   height: 100%;
@@ -91,39 +105,6 @@ a.anc-button:hover {
   padding-top: 60px;
   border-right: 10px solid #FFCB05;
 }
-
-h1 {
-  /*font-family: 'Lora', serif;*/
-  color: white;
-  font-size: 68px;
-  /*font-family: 'Cabin', sans-serif;*/
-  font-family: 'Playfair Display', sans-serif;
-}
-h2 {
-  color: white;
-}
-h3 {
-  color: black;
-}
-
-
-
-#search-form, .form-control {
-    margin-bottom: 20px;
-}
-.cover {
-    width: 300px;
-    height: 300px;
-    display: inline-block;
-    background-size: cover;
-}
-.cover:hover {
-    cursor: pointer;
-}
-.cover.playing {
-    border: 5px solid #e45343;
-}
-
 .left-nav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -144,11 +125,15 @@ h3 {
     font-size: 36px;
     margin-left: 50px;
 }
-.flow-chart-image {
-  width: 466px;
-  height: auto;
-  margin: 0 auto;
+#search-form, .form-control {
+    margin-bottom: 20px;
 }
+
+
+
+
+ /*Media Queries*/
+
 
 
 @media screen and (max-height: 450px) {
@@ -167,15 +152,3 @@ h3 {
       display:none;
     }
 }
-
-
-/* Extra small devices (phones, less than 768px) */
-/* No media query since this is the default in Bootstrap */
-
-/* Small devices (tablets, 768px and up) */
-/*@media (min-width: @screen-sm-min) { ... }*/
-
-/* Medium devices (desktops, 992px and up) */
-/*@media (min-width: @screen-md-min) { ... }*/
-
-/* Large devices (large desktops, 1200px and up) */
