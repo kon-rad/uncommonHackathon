@@ -112,6 +112,11 @@ console.log(json.name);
 
 $(document).ready(function() {
 
+  // Toggles Music Therapy Playlist when "Generate Playlist" button is pressed
+  $("#ifrme-button").click(function(){
+    $("#iframe-playlist").toggleClass("display");
+  })
+
   //Uses AJAX to read Spotify JSON files recieved from Spotify Track API
   var tracks = ["3n3Ppam7vgaVa1iaRUc9Lp", "7pPFNwM1ALSVU4nZfvHfn7", "3n3Ppam7vgaVa1iaRUc9Lp"];
 
@@ -119,13 +124,6 @@ $(document).ready(function() {
   {
       loadTracks(tracks[i]);
   }
-
-
-
-
-
-
-    // your code here
 
     var count= 001;
 // find template and compile it

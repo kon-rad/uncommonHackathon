@@ -27,6 +27,10 @@ body {
   font-family: 'Lato', sans-serif;
   text-align: center;
 }
+.copyright {
+  font-size: 9px;
+  color: #818181;
+}
 .cover {
     width: 150px;
     height: 150px;
@@ -48,6 +52,9 @@ body {
   float:right;
  margin-right:22%;
 }
+.display {
+  display:none;
+}
 .footer-nav {
     padding: 16px;
     border-top: 1px solid #e2e2e2;
@@ -65,9 +72,14 @@ body {
   color: rgba(175,175,175,0.95);
   background: transparent;
 }
-.footer-nav ul.nav-list li:hover {
+.footer-nav ul.nav-list li a {
+  color: #818181;
+  font-size: 12px;
+}
+.footer-nav ul.nav-list li a:hover {
   text-decoration: underline;
   outline: 0;
+  color: #818181
 }
 .flow-chart-image {
   width: 466px;
@@ -128,6 +140,7 @@ h3 {
 #search-form, .form-control {
     margin-bottom: 20px;
 }
+
 
 
 
