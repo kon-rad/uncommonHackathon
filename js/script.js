@@ -113,7 +113,7 @@ console.log(json.name);
 $(document).ready(function() {
 
   // Toggles Music Therapy Playlist when "Generate Playlist" button is pressed
-  $("#ifrme-button").click(function(){
+  $("#iframe-button").click(function(){
     $("#iframe-playlist").toggleClass("display");
   })
 
