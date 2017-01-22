@@ -28,6 +28,13 @@ body {
   font-family: 'Lato', sans-serif;
   text-align: center;
 }
+.closebtn {
+  position: absolute;
+top: 0;
+right: 25px;
+font-size: 36px;
+margin-left: 50px;
+}
 .copyright {
   font-size: 9px;
   color: #818181;
@@ -50,8 +57,8 @@ body {
   background-color: white;
 }
 .content-wrapper {
-  float:right;
- margin-right:22%;
+  /*float:right;
+ margin-right:22%;*/
 }
 .display {
   display:none;
@@ -143,8 +150,16 @@ h3 {
     font-size: 36px;
     margin-left: 50px;
 }
+#open-span {
+  color:white;
+  margin-left:32px;
+}
 #search-form, .form-control {
     margin-bottom: 20px;
+}
+.title-wrapper {
+  width: 100%;
+  height: auto;
 }
 
 
@@ -162,12 +177,24 @@ h3 {
 
 
 @media (max-width: 768px) {
-  .content-wrapper {
-    width: 80%
+  .content-inner {
+
+  }
+  .left-nav {
+    width:0px;
   }
 }
 @media (min-width: 769px) {
     #open-span {
       display:none;
+    }
+    .title-wrapper {
+      margin-left: 250px;
+      width: auto;
+      height:auto;
+    }
+    .actionable-container {
+      margin-left:250px;
+
     }
 }
