@@ -183,7 +183,7 @@ h3 {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   #open-span {
     top: 0px;
     left: 20px;
@@ -197,7 +197,5 @@ h3 {
     .title-wrapper {
       width: auto;
       height:auto;
-    }
-    .actionable-container {
     }
 }
